@@ -5,7 +5,7 @@ import {
   Flex,
   Avatar,
   HStack,
-  Link,
+ 
   IconButton,
   Button,
   Menu,
@@ -18,6 +18,11 @@ import {
   Stack,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { Link } from 'react-router-dom';
+
+
+
+
 
 const Links = ['Dashboard', 'Projects', 'Team'];
 
@@ -60,6 +65,9 @@ export default function Navbar() {
               {Links.map((link) => (
                 <NavLink key={link}>{link}</NavLink>
               ))}
+
+              
+
             </HStack>
           </HStack>
           <Flex alignItems={'center'}>
@@ -77,11 +85,26 @@ export default function Navbar() {
                   }
                 />
               </MenuButton>
+
+
               <MenuList>
-                <MenuItem>Sign UP</MenuItem>
-                <MenuItem>Sign In</MenuItem>
+        
+              
+              <MenuItem>
+                 <Link to="/">SignUp</Link>
+                </MenuItem>
+              <MenuItem>
+                  <Link to="/signin">Sign In</Link>
+                </MenuItem>
+
+                
+
                 <MenuDivider />
-                <MenuItem>Link 3</MenuItem>
+                
+                <MenuItem>
+                  <Link to="/signin">Log Out</Link>
+                
+                </MenuItem>
               </MenuList>
             </Menu>
           </Flex>
@@ -98,7 +121,7 @@ export default function Navbar() {
         ) : null}
       </Box>
 
-      <Box p={4}>Main Content Here</Box>
+    
     </>
   );
 }
