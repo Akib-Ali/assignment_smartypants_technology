@@ -1,9 +1,10 @@
 import { ReactNode } from 'react';
-import { Box, Flex, Avatar,HStack,IconButton,Button,Menu,MenuButton,MenuList,MenuItem,MenuDivider,useDisclosure,useColorModeValue,
+import { Box, Flex, Avatar,HStack,IconButton,Button,Menu,MenuButton,MenuList,MenuItem,MenuDivider,useDisclosure,Text,useColorModeValue,
   Stack,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const NavLink = ( {children, children: ReactNode }) => (
@@ -22,6 +23,15 @@ const NavLink = ( {children, children: ReactNode }) => (
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const username=     JSON.parse(localStorage.getItem("userinfo"))
+  const navigate= useNavigate()
+
+   const handlelogOut=()=>{
+
+    localStorage.removeItem("userinfo")
+    alert("plase confirm logout")
+    navigate("/signup")
+  }
 
   return (
     <>
@@ -42,13 +52,10 @@ export default function Navbar() {
               as={'nav'}
               spacing={4}
               display={{ base: 'none', md: 'flex' }}>
-             
-
-              
-
-            </HStack>
+             </HStack>
           </HStack>
-          <Flex alignItems={'center'}>
+          <Flex alignItems={'center'} gap="30px">
+      
             <Menu>
               <MenuButton
                 as={Button}
@@ -56,6 +63,8 @@ export default function Navbar() {
                 variant={'link'}
                 cursor={'pointer'}
                 minW={0}>
+
+                
                 <Avatar
                   size={'sm'}
                   src={
@@ -80,7 +89,7 @@ export default function Navbar() {
                 <MenuDivider />
                 
                 <MenuItem>
-                  <Link to="/signin">Log Out</Link>
+                 <Text onClick={handlelogOut}>Log out</Text>
                 
                 </MenuItem>
               </MenuList>
@@ -91,9 +100,7 @@ export default function Navbar() {
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
+              
             </Stack>
           </Box>
         ) : null}

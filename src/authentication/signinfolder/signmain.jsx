@@ -40,20 +40,9 @@ export const SignInMain=()=>{
      }
 
     
+  }
 
-
-
-
-    }
-
-    
-
-
-
-
-
-
-    return(
+ return(
 
         <div>
     
