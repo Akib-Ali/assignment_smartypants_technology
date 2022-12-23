@@ -3,7 +3,7 @@ import {Flex,Box,FormControl,FormLabel,Input,Checkbox,Stack,Link,Button,Heading,
   
 
 
-export const SignIn=()=>{
+export const SignIn=(props)=>{
 
 
     return (
@@ -19,37 +19,42 @@ export const SignIn=()=>{
                 to enjoy all of our cool <Link color={'blue.400'}>features</Link> ✌️
               </Text>
             </Stack>
+
             <Box
               rounded={'lg'}
               bg={useColorModeValue('white', 'gray.700')}
               boxShadow={'lg'}
               p={8}>
+
               <Stack spacing={4}>
+              <form>
+
+            
                 <FormControl id="email">
                   <FormLabel>Email address</FormLabel>
-                  <Input type="email" />
+                  <Input type="email" name="signinEmail"  value={props.signinInput.signinEmail} 
+                  onChange={props.handleSignInInputValue} autoComplete="off" placeholder='Enter Email Id'/>
                 </FormControl>
                 <FormControl id="password">
                   <FormLabel>Password</FormLabel>
-                  <Input type="password" />
+                  <Input type="password" name="signinPassword" value={props.signinInput.signinPassword} 
+                  onChange={props.handleSignInInputValue} autoComplete="off" placeholder='Enter Password'/>
                 </FormControl>
                 <Stack spacing={10}>
-                  <Stack
-                    direction={{ base: 'column', sm: 'row' }}
-                    align={'start'}
-                    justify={'space-between'}>
-                    <Checkbox>Remember me</Checkbox>
-                    <Link color={'blue.400'}>Forgot password?</Link>
-                  </Stack>
+  
                   <Button
                     bg={'blue.400'}
                     color={'white'}
                     _hover={{
                       bg: 'blue.500',
-                    }}>
+                    }}
+                    onClick={props.handleSignIn} 
+                    >
                     Sign in
                   </Button>
+                  
                 </Stack>
+                </form>
               </Stack>
             </Box>
           </Stack>
