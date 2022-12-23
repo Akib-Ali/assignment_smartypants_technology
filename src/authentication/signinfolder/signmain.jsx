@@ -23,14 +23,7 @@ export const SignInMain=()=>{
         const value = e.target.value;
 
         setsigninInput({...signinInput, [name] : value})
-
-        if(list == signindata){
-          alert("yes")
-
-        }else{
-            alert("no")
-        }
-     }
+    }
 
   
 
@@ -38,6 +31,15 @@ export const SignInMain=()=>{
         e.preventDefault()
 
         setsignData([signinInput,...signindata])
+
+        
+        if(list.emailaddress === signindata.signinEmail){
+            alert("yes")
+  
+          }else{
+              alert("no")
+          }
+       
 
         // let list = JSON.parse(localStorage.getItem("detail"))
     
