@@ -4,6 +4,7 @@ import {SignIn} from "../signinfolder/signin"
 
 export const SignInMain=()=>{
 
+
     const [signinInput,setsigninInput] = useState({
         signinEmail:"",
         signinPassword:""
@@ -11,22 +12,42 @@ export const SignInMain=()=>{
 
     const [signindata, setsignData] = useState([])
 
+
+    let list = localStorage.getItem("logindetail")
+    console.log(`here is received local storage  ${list}`)
+
+
+
     const handleSignInInputValue=(e)=>{
         const name = e.target.name;
         const value = e.target.value;
 
         setsigninInput({...signinInput, [name] : value})
+
+        if(list == signindata){
+          alert("yes")
+
+        }else{
+            alert("no")
+        }
      }
 
-    console.log(signindata)
+  
 
     const handleSignIn=(e)=>{
         e.preventDefault()
 
         setsignData([signinInput,...signindata])
 
+        // let list = JSON.parse(localStorage.getItem("detail"))
+    
+
+
+
 
     }
+
+    console.log(signindata)
 
 
 

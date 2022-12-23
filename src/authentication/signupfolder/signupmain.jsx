@@ -26,6 +26,8 @@ export const SignUpMain=()=>{
     e.preventDefault()
      setData([...data, inputvalue])
 
+     alert("created account successfuly")
+
    }
 
    useEffect(()=>{
