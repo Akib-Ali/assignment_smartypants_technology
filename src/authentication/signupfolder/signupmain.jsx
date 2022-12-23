@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import SignUp from "../signupfolder/signup"
 
 export const SignUpMain=()=>{
@@ -24,8 +24,13 @@ export const SignUpMain=()=>{
 
    const handleSubmit=(e)=>{
     e.preventDefault()
-     setData([inputvalue, ...data])
-    }
+     setData([...data, inputvalue])
+
+   }
+
+   useEffect(()=>{
+    localStorage.setItem("logindetail", JSON.stringify(data))
+   })
 
 
    console.log(data)
