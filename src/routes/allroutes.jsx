@@ -1,7 +1,6 @@
 import React from "react";
-import { Routes } from "react-router-dom";
-import { Route } from "react-router-dom";
-import { SignIn } from "../authentication/signinfolder/signin";
+import { Routes,Route } from "react-router-dom";
+import { SignInMain } from "../authentication/signinfolder/signmain";
 import { SignUpMain } from "../authentication/signupfolder/signupmain";
 
 
@@ -13,7 +12,7 @@ return(
    <>
     <Routes>
         <Route path="/" element={<SignUpMain/>} />
-        <Route path="/signin" element={<SignIn/>}/>
+        <Route path="/signin" element={<SignInMain/>}/>
     </Routes>
    </>
 )

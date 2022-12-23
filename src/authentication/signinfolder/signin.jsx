@@ -1,14 +1,60 @@
+import {Flex,Box,FormControl,FormLabel,Input,Checkbox,Stack,Link,Button,Heading,Text,useColorModeValue,
+  } from '@chakra-ui/react';
+  
+
+
 export const SignIn=()=>{
 
 
-
-    return(
-
-        <div>
-            <h1>What is Lorem Ipsum?
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-</h1>
-        </div>
-    )
+    return (
+        <Flex
+          minH={'100vh'}
+          align={'center'}
+          justify={'center'}
+          bg={useColorModeValue('gray.50', 'gray.800')}>
+          <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+            <Stack align={'center'}>
+              <Heading fontSize={'4xl'}>Sign in to your account</Heading>
+              <Text fontSize={'lg'} color={'gray.600'}>
+                to enjoy all of our cool <Link color={'blue.400'}>features</Link> ✌️
+              </Text>
+            </Stack>
+            <Box
+              rounded={'lg'}
+              bg={useColorModeValue('white', 'gray.700')}
+              boxShadow={'lg'}
+              p={8}>
+              <Stack spacing={4}>
+                <FormControl id="email">
+                  <FormLabel>Email address</FormLabel>
+                  <Input type="email" />
+                </FormControl>
+                <FormControl id="password">
+                  <FormLabel>Password</FormLabel>
+                  <Input type="password" />
+                </FormControl>
+                <Stack spacing={10}>
+                  <Stack
+                    direction={{ base: 'column', sm: 'row' }}
+                    align={'start'}
+                    justify={'space-between'}>
+                    <Checkbox>Remember me</Checkbox>
+                    <Link color={'blue.400'}>Forgot password?</Link>
+                  </Stack>
+                  <Button
+                    bg={'blue.400'}
+                    color={'white'}
+                    _hover={{
+                      bg: 'blue.500',
+                    }}>
+                    Sign in
+                  </Button>
+                </Stack>
+              </Stack>
+            </Box>
+          </Stack>
+        </Flex>
+      );
+    
 }
+
