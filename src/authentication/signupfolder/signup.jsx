@@ -6,7 +6,7 @@ import { Flex, Box, FormControl, FormLabel, Input, InputGroup,HStack,InputRightE
 
 
 
-export const SignUp=()=>{
+const SignUp=(props)=>{
    const [showPassword, setShowPassword] = useState(false);
     return (
       <Flex
@@ -33,26 +33,26 @@ export const SignUp=()=>{
               <Box>
                   <FormControl id="firstName" isRequired>
                     <FormLabel>First Name</FormLabel>
-                    <Input type="text" autoComplete='off' placeholder='First Name'/>
+                    <Input type="text" autoComplete='off' placeholder='First Name' name="firstname"  value={props.inputvalue.firstname} onChange={props.handleInputValue}/>
                   </FormControl>
                 </Box>
                 <Box>
                   <FormControl id="lastName">
                     <FormLabel>Last Name</FormLabel>
-                    <Input type="text" autoComplete='off' placeholder='Last Name' />
+                    <Input type="text" autoComplete='off' placeholder='Last Name' name="lastname" value={props.inputvalue.lastname} onChange={props.handleInputValue}/>
                   </FormControl>
                 </Box> 
               </HStack>
 
               <FormControl id="email" isRequired>
                 <FormLabel>Email address</FormLabel>
-                <Input type="email" autoComplete='off' placeholder='example@gmail.com' />
+                <Input type="email" autoComplete='off' placeholder='example@gmail.com'  name="emailaddress" value={props.inputvalue.emailaddress} onChange={props.handleInputValue}/>
               </FormControl>
 
               <FormControl id="password" isRequired>
                 <FormLabel>Password</FormLabel>
                 <InputGroup>
-                  <Input type={showPassword ? 'text' : 'password'}  placeholder="Enter Password" />
+                  <Input type={showPassword ? 'text' : 'password'}  placeholder="Enter Password"  name="password" value={props.inputvalue.password} onChange={props.handleInputValue}/>
                   <InputRightElement h={'full'}>
                     <Button
                       variant={'ghost'}
@@ -68,7 +68,7 @@ export const SignUp=()=>{
               <FormControl id="password" isRequired>
                 <FormLabel>Repeat Password</FormLabel>
                 <InputGroup>
-                  <Input type="password" placeholder='Enter Same password'/>
+                  <Input type="password" placeholder='Enter Same password' name="repeatpassword" value={props.inputvalue.repeatpassword} onChange={props.handleInputValue}/>
                 
                 </InputGroup>
               </FormControl>
@@ -80,9 +80,10 @@ export const SignUp=()=>{
                   size="lg"
                   bg={'blue.400'}
                   color={'white'}
-                  _hover={{
-                    bg: 'blue.500',
-                  }}>
+                  _hover={{bg: 'blue.500', }}
+                  onClick={props.handleSubmit}
+                  
+                  >
                   Sign up
                 </Button>
               </Stack>
@@ -101,3 +102,5 @@ export const SignUp=()=>{
     );
   
 }
+
+export default SignUp
