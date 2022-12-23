@@ -1,7 +1,8 @@
 import { Flex, Box, FormControl, FormLabel, Input, InputGroup,HStack,InputRightElement,Stack,Button,Heading,Text,
-    useColorModeValue,Link} from '@chakra-ui/react';
+    useColorModeValue} from '@chakra-ui/react';
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+  import { Link } from 'react-router-dom';
   
 
 
@@ -88,9 +89,14 @@ const SignUp=(props)=>{
                 </Button>
               </Stack>
               <Stack pt={6}>
+                <Link to="/signin">
                 <Text align={'center'}>
-                  Already a user? <Link color={'blue.400'}>Login</Link>
+                  
+                  Alredy a user ? <span style={{color:"green"}}>login</span>
                 </Text>
+                </Link>
+                
+
               </Stack> 
               </form>
             </Stack>

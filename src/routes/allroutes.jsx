@@ -12,9 +12,10 @@ export const AllRoutes=()=>{
 return(
    <>
     <Routes>
-        <Route path="/" element={<SignUpMain/>} />
-        <Route path="/signin" element={<SignInMain/>}/>
-        <Route path ="/countrydetail" element={<FetchApi/>}/>
+    <Route path ="/" element={<FetchApi/>}/>
+        <Route path="/signup" element={<SignUpMain/>}/>
+       <Route path="/signin" element={<SignInMain/>}/>
+        
     </Routes>
    </>
 )

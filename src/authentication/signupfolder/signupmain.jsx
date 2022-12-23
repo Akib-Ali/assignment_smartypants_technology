@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react"
 import SignUp from "../signupfolder/signup"
+import { useNavigate } from "react-router-dom";
+
+
 
 export const SignUpMain=()=>{
 
@@ -10,7 +13,11 @@ export const SignUpMain=()=>{
      password:"",
      repeatpassword:""
     })
-    const [data, setData] = useState([])
+
+    
+
+    const navigate = useNavigate()
+    
 
 
 
@@ -24,20 +31,17 @@ export const SignUpMain=()=>{
 
    const handleSubmit=(e)=>{
     e.preventDefault()
-     setData([...data, inputvalue])
-
-     alert("created account successfuly")
+    
+    localStorage.setItem("userinfo", JSON.stringify(inputvalue))
+    alert("created account successfuly")
+     navigate("/")
+  
 
    }
 
-   useEffect(()=>{
-    localStorage.setItem("logindetail", JSON.stringify(data))
-   })
 
-
-   console.log(data)
-
-  return(
+   
+    return(
 
     <div>
        <SignUp inputvalue={inputvalue} setInputValue={setInputValue} handleInputValue={handleInputValue} 

@@ -1,30 +1,10 @@
 import { ReactNode } from 'react';
-
-import {
-  Box,
-  Flex,
-  Avatar,
-  HStack,
- 
-  IconButton,
-  Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
-  useDisclosure,
-  useColorModeValue,
+import { Box, Flex, Avatar,HStack,IconButton,Button,Menu,MenuButton,MenuList,MenuItem,MenuDivider,useDisclosure,useColorModeValue,
   Stack,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 
-
-
-
-
-const Links = ['Dashboard', 'Projects', 'Team'];
 
 const NavLink = ( {children, children: ReactNode }) => (
   <Link
@@ -62,9 +42,7 @@ export default function Navbar() {
               as={'nav'}
               spacing={4}
               display={{ base: 'none', md: 'flex' }}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
+             
 
               
 
@@ -91,7 +69,7 @@ export default function Navbar() {
         
               
               <MenuItem>
-                 <Link to="/">SignUp</Link>
+                 <Link to="/signup">SignUp</Link>
                 </MenuItem>
               <MenuItem>
                   <Link to="/signin">Sign In</Link>

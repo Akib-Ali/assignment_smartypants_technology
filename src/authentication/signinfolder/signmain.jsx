@@ -1,5 +1,6 @@
 import { useState } from "react"
 import {SignIn} from "../signinfolder/signin"
+import { useNavigate } from "react-router-dom"
 
 
 export const SignInMain=()=>{
@@ -10,11 +11,8 @@ export const SignInMain=()=>{
         signinPassword:""
     })
 
-    const [signindata, setsignData] = useState([])
-
-
-    let list = localStorage.getItem("logindetail")
-    console.log(`here is received local storage  ${list}`)
+    const navigate = useNavigate()
+    
 
 
 
@@ -30,18 +28,17 @@ export const SignInMain=()=>{
     const handleSignIn=(e)=>{
         e.preventDefault()
 
-        setsignData([signinInput,...signindata])
+     const loggeduser = JSON.parse(localStorage.getItem("userinfo"))
 
+     if(signinInput.signinEmail === loggeduser.emailaddress  && signinInput.signinPassword === loggeduser.password){
+       alert(" congratulation successful login")
+        navigate("/")
+    
         
-        if(list.emailaddress === signindata.signinEmail){
-            alert("yes")
-  
-          }else{
-              alert("no")
-          }
-       
+     }else{
+        alert("Sorry password or email Id is wrong")
+     }
 
-        // let list = JSON.parse(localStorage.getItem("detail"))
     
 
 
@@ -49,7 +46,7 @@ export const SignInMain=()=>{
 
     }
 
-    console.log(signindata)
+    
 
 
 
@@ -62,8 +59,7 @@ export const SignInMain=()=>{
     
            <SignIn signinInput={signinInput} 
            setsigninInput={setsigninInput} 
-           handleSignInInputValue={handleSignInInputValue} signindata={signindata} setsignData={setsignData}  
-           handleSignIn={handleSignIn}/>
+           handleSignInInputValue={handleSignInInputValue}    handleSignIn={handleSignIn}/>
           
         </div>
     )
