@@ -55,6 +55,8 @@ export default function Navbar() {
              </HStack>
           </HStack>
           <Flex alignItems={'center'} gap="30px">
+
+          {username ?  <Text>{`Welcome to ${username.firstname} ${username.lastname}`} </Text> : <Text> Logout !</Text>}
       
             <Menu>
               <MenuButton
