@@ -8,6 +8,8 @@ export const FetchApi=()=>{
     const [loading, setLoading] = useState(false)
     const [searchinput,setsearchinput] = useState("")
 
+   
+
 
     
    const fetchmethod= async(params)=>{
@@ -45,6 +47,9 @@ export const FetchApi=()=>{
 
 
   }
+
+
+  
 
 
 

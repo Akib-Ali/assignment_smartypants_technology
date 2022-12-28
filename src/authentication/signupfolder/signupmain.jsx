@@ -34,7 +34,7 @@ export const SignUpMain=()=>{
     
     localStorage.setItem("userinfo", JSON.stringify(inputvalue))
     alert("created account successfuly")
-     navigate("/")
+     navigate("/cuntrydetail")
   
 
    }

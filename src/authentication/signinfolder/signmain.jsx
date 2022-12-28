@@ -32,7 +32,7 @@ export const SignInMain=()=>{
 
      if(signinInput.signinEmail === loggeduser.emailaddress  && signinInput.signinPassword === loggeduser.password){
        alert("congratulation successful login ")
-        navigate("/")
+        navigate("/cuntrydetail")
     
         
      }else{

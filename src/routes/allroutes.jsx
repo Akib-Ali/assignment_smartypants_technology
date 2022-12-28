@@ -12,9 +12,9 @@ export const AllRoutes=()=>{
 return(
    <>
     <Routes>
-    <Route path ="/" element={<FetchApi/>}/>
-        <Route path="/signup" element={<SignUpMain/>}/>
+       <Route path ="/" element={<SignUpMain/>}/>
        <Route path="/signin" element={<SignInMain/>}/>
+       <Route path="/cuntrydetail" element={<FetchApi/>}/>
         
     </Routes>
    </>

@@ -30,7 +30,7 @@ export default function Navbar() {
 
     localStorage.removeItem("userinfo")
     alert("plase confirm logout")
-    navigate("/signup")
+    navigate("/")
   }
 
   return (
@@ -80,7 +80,7 @@ export default function Navbar() {
         
               
               <MenuItem>
-                 <Link to="/signup">SignUp</Link>
+                 <Link to="/">SignUp</Link>
                 </MenuItem>
               <MenuItem>
                   <Link to="/signin">Sign In</Link>
